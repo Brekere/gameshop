@@ -1,0 +1,122 @@
+<div class="add-game-container">
+  <div class="form form-add-game card text-white bg-dark">
+    <div class="card-first d-flex flex-column align-items-center">
+      <img src="./../../../assets/images/logo.png" alt="" width="auto" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Dar de alta el juego</h1>
+    </div>
+
+    <form
+      id="addgameform"
+      class="card-form my-3"
+      [formGroup]="addgameform"
+      (ngSubmit)="onAdd()"
+    >
+      <div class="form-group">
+        <label for="inputTitle" class="sr-only">Titulo</label>
+        <input type="text" id="inputTitle" class="form-control" placeholder="Titulo" formControlName="title">
+        <p 
+          *ngIf="addgameform.get('title')?.touched && addgameform.get('title')?.invalid" 
+          class="text-danger"
+        >
+          Titulo Requerido
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDescription" class="sr-only">Descripción</label>
+        <textarea id="inputDescription" class="form-control" placeholder="Descripción" formControlName="description" rows="2"></textarea>
+        <p 
+          *ngIf="addgameform.get('description')?.touched && addgameform.get('description')?.invalid" 
+          class="text-danger"
+        >
+          Descripción Requerida
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputImage" class="sr-only">Imagen</label>
+        <input type="text" id="inputImage" class="form-control" placeholder="Imagen" formControlName="image">
+        <p 
+          *ngIf="addgameform.get('image')?.touched && addgameform.get('image')?.invalid" 
+          class="text-danger"
+        >
+          Imagen Requerida
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputRating" class="sr-only">Calificación</label>
+        <input type="number" id="inputRating" class="form-control" placeholder="Calificación" formControlName="rating">
+        <p 
+          *ngIf="addgameform.get('image')?.touched && addgameform.get('image')?.invalid" 
+          class="text-danger"
+        >
+          Imagen Requerida
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDownloads" class="sr-only">Total de descargas</label>
+        <input type="number" id="inputDownloads" class="form-control" placeholder="Total de descargas" formControlName="downloads">
+        <p 
+          *ngIf="addgameform.get('downloads')?.touched && addgameform.get('downloads')?.invalid" 
+          class="text-danger"
+        >
+          Total de descargas Requerido
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputReleaseDate" class="sr-only">Fecha de lanzamiento</label>
+        <input type="text" id="inputReleaseDate" class="form-control" placeholder="Fecha de lanzamiento" formControlName="releaseDate">
+        <p 
+          *ngIf="addgameform.get('releaseDate')?.touched && addgameform.get('releaseDate')?.invalid" 
+          class="text-danger"
+        >
+          Fecha de lanzamiento Requerida
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="inputComingSoon" class="sr-only">Estado actual</label>
+        <select id="inputComingSoon" class="form-control" placeholder="comingSoon" formControlName="comingSoon">
+          <option value="true">Proximo lanzamiento</option>
+          <option value="false">Ya lanzado</option>
+        </select>
+        <p 
+          *ngIf="addgameform.get('comingSoon')?.touched && addgameform.get('comingSoon')?.invalid" 
+          class="text-danger"
+        >
+          Estado actual Requerido
+        </p>
+      </div>
+      
+      <p *ngIf="!!actionError" class="form-message text-danger mt-3">
+        {{ actionError }}
+      </p>
+    </form>
+
+
+    <div class="card-actions d-flex flex-column">
+      <button 
+          class="btn btn-primary btn-block" 
+          type="submit"
+          form="addgameform"
+          [disabled]="!addgameform.valid || loading"
+      >
+          <span *ngIf="!loading">Agregar</span>
+          <span *ngIf="loading">Cargando</span>
+      </button>
+      <button 
+          class="btn btn-secondary btn-block"
+          (click)="onBack()"
+      >
+          Cancelar
+      </button>
+    </div>
+
+    <div class="mt-5 mb-3 card-bottom text-center">
+      <p class="text-muted">&copy; uveg</p>
+    </div>
+  </div>
+</div>

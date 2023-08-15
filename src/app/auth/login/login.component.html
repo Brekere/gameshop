@@ -1,0 +1,63 @@
+<div class="login-container">
+    <div class="form form-login card text-white bg-dark">
+        <div class="card-first text-center">
+            <i class="bi bi-person-circle"></i>
+            <h1 class="h3 mb-3 font-weight-normal">Bienvenido</h1>
+        </div>
+
+        <form 
+            id="loginform" 
+            class="card-form my-3" 
+            [formGroup]="loginform"
+            (ngSubmit)="onLogin()"
+        >
+            <div class="form-group">
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" autofocus formControlName="email">
+                <p 
+                    *ngIf="loginform.get('email')?.touched && loginform.get('email')?.invalid" 
+                    class="text-danger"
+                >
+                    Email Requerido
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="sr-only">Contraseña</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" formControlName="password">
+                <p 
+                    *ngIf="loginform.get('password')?.touched && loginform.get('password')?.invalid" 
+                    class="text-danger"
+                >
+                    Contraseña Requerida
+                </p>
+            </div>
+
+            <p *ngIf="!!actionError" class="form-message text-danger mt-3">
+                {{ actionError }}
+            </p>
+        </form>
+
+        <div class="card-actions d-flex flex-column">
+            <button 
+                class="btn btn-primary btn-block" 
+                type="submit"
+                form="loginform"
+                [disabled]="!loginform.valid || loading"
+            >
+                <span *ngIf="!loading">Iniciar sesión</span>
+                <span *ngIf="loading">Cargando</span>
+            </button>
+            <button 
+                class="btn btn-secondary btn-block"
+                (click)="onSignIn()"
+            >
+                Registrarse
+            </button>
+        </div>
+
+        <div class="mt-5 mb-3 card-bottom text-center">
+            <p class="text-muted">&copy; uveg</p>
+        </div>
+    </div>
+</div>

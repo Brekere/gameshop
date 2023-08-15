@@ -1,0 +1,29 @@
+<div class="text-center signin-container">
+    <div class="form-signin">
+        <img class="mb-4" src="./../../../assets/images/user.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+
+        <label for="inputName" class="sr-only">Nombre</label>
+        <form [formGroup]="group">
+        <input type="email" id="inputName" class="form-control" placeholder="Nombre" formControlName="name">
+        </form>
+
+        <label for="inputEmail" class="sr-only">Email</label>
+        <form [formGroup]="group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email" formControlName="email">
+        </form>
+
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <form [formGroup]="group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required formControlName="password">
+        </form>
+
+        <label for="inputConfirmPassword" class="sr-only">Contraseña</label>
+        <form [formGroup]="group">
+        <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirmar contraseña" required formControlName="confirmPassword">
+        </form>
+
+        <button class="btn btn-lg btn-secondary btn-block" (click)="onSignIn()">Registrarse</button>
+        <p class="mt-5 mb-3 text-muted">&copy; uveg</p>
+    </div>
+</div>

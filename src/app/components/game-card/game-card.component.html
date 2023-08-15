@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"> {{ game ? game.title : 'Sin nombre' }} </h5>
+
+        <div class="card-image-container">
+            <img class="card-img-top" [src]="game ? game.image : '../../../assets/images/games/juego1.jpg'" alt="Imagen no disponible">
+        </div>
+
+        <p class="card-title">Fecha de lanzamiento: {{ (game ? game.releaseDate : 'Sin descripción') | slice:1:10 }}</p>
+
+        <p class="card-text"> {{ (game ? game.description : 'Sin descripción') | slice:0:150 }} ... </p>
+        <button href="#" class="btn btn-primary" (click)="onBuy()">Agregar al carrito</button>
+    </div>
+</div>

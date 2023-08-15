@@ -1,0 +1,22 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(./../../../assets/images/wallpaper.jpg);
+  background-size: cover;
+
+  .form-login {
+    width: 100%;
+    max-width: 350px;
+    padding: 30px;
+    margin: auto;
+    border-radius: 8px;
+
+    .card-first {
+      i.bi {
+        font-size: 72px;
+      }
+    }
+  }
+}

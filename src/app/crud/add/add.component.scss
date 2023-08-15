@@ -1,0 +1,20 @@
+.add-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./../../../assets/images/wallpaper.jpg);
+    background-size: cover;
+
+    .form-add-game {
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        margin: auto;
+        border-radius: 8px;
+
+        textarea {
+            resize: none;
+        }
+    }
+}

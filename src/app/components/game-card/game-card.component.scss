@@ -1,0 +1,31 @@
+:host {
+    margin-bottom: 15px;
+    
+
+    .card {
+        background-color: #212529;
+        color: white;
+        .card-image-container {
+            max-height: 180px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    
+        .card-body {
+            .card-text {
+                max-height: 120px;
+                min-height: 120px;
+                overflow: hidden;
+            }
+        }
+    }
+}
